@@ -1,0 +1,26 @@
+
+Project Exmdirect_DB {
+  database_type: "PostgreSQL"
+}
+
+Table students {
+  student_id int [pk, increment]
+  full_name varchar
+  birth_date date
+  class_id int [ref: > class_structure.class_id]
+}
+
+Table class_structure {
+  class_id int [pk, increment]
+  grade int
+  letter varchar
+  year int
+}
+
+Table results {
+  id int [pk, increment]
+  student_id int [ref: > students.student_id]
+  subject varchar
+  test_date date
+  score int
+}
